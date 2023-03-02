@@ -16,16 +16,8 @@ int main(int argc, char *argv[])
 
     if (!loader.load())
     {
-        QString path = "../../libs/main/release/main.dll";
-#ifdef QT_DEBUG
-        path = "../../libs/main/debug/main.dll";
-#endif
-        loader.setFileName(path);
-        if (!loader.load())
-        {
-            QMessageBox::critical(nullptr, "", "Could not load plugin: " + loader.errorString());
-            return 0;
-        }
+        QMessageBox::critical(nullptr, "", "Could not load plugin: " + loader.errorString());
+        return 0;
     }
 
 
